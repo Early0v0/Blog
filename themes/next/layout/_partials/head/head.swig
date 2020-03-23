@@ -3,9 +3,6 @@
 <meta name="theme-color" content="{{ theme.android_chrome_color }}">
 <meta name="generator" content="Hexo {{ hexo_version }}">
 
-{# Google Search Console #}
-<meta name="google-site-verification" content="Kj4ZmeDR5KjgmKDkOQ-8l-7bQWum4hCvzumQX8Wb2R0" />
-
 {%- if theme.favicon.apple_touch_icon %}
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for(theme.favicon.apple_touch_icon) }}">
 {%- endif %}
