@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://helloearly.github.io
+url: https://helloearly.netlify.com
 root: /
 permalink: :year/:month/:title/
 permalink_defaults:
@@ -104,8 +104,8 @@ symbols_count_time:
   exclude_codeblock: false
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: https://github.com/helloearly/helloearly.github.io.git
-  branch: master
+## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
+#deploy:
+#  type: git
+#  repository: https://github.com/helloearly/helloearly.github.io.git
+#  branch: master
