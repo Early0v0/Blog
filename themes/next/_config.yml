@@ -31,7 +31,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -184,9 +184,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/helloearly || github
-  E-Mail: mailto:lin_erli@outlook.com || envelope
-  QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || qq
+  GitHub: https://github.com/helloearly || fa fa-fw fa-github
+  E-Mail: mailto:lin_erli@outlook.com || fa fa-fw fa-envelope
+  QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || fa fa-fw fa-qq
+  Codeforces: https://codeforces.com/profile/Early || iconfont icon-codeforces
   #Weibo: https://weibo.com/yourname || weibo
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook

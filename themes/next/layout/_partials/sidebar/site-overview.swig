@@ -80,7 +80,7 @@
       <span class="links-of-author-item">
       {%- set sidebarURL = link.split('||')[0] | trim %}
       {%- if theme.social_icons.enable %}
-        {%- set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim + '"></i>' %}
+        {%- set sidebarIcon = '<i class="' + link.split('||')[1] | trim + '"></i>' %}
       {%- else %}
         {%- set sidebarIcon = '' %}
       {%- endif %}
