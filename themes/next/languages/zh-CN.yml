@@ -52,7 +52,7 @@ counter:
   archive_posts:
     zero: 暂无文章。
     one: 已经写了 1 篇文章。
-    other: "已经写了 %d 篇文章。"
+    other: "已经写了 %d 篇文章，继续努力。"
 state:
   posts: 文章
   tags: 标签
