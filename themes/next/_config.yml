@@ -452,7 +452,7 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: "Monda"
+    family: "Monda', 'FZYaShiHeiS"
 
   # Font settings for posts (.post-body).
   posts:
