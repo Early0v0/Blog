@@ -36,15 +36,14 @@ $use-seo = hexo-config('seo');
 // Post & Comments blocks.
 .post-block {
   background: var(--content-bg-color);
-  border-radius: $border-radius-inner;
-  box-shadow: $box-shadow-inner;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
   padding: $content-desktop-padding;
+  margin-top: $sidebar-offset-half;
 
   // When blocks are siblings (homepage).
   & + .post-block {
-    border-radius: $border-radius;
     // Rewrite shadows & borders because all blocks have offsets.
-    box-shadow: $box-shadow;
     margin-top: $sidebar-offset;
   }
 }
