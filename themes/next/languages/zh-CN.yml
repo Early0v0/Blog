@@ -52,7 +52,7 @@ counter:
   archive_posts:
     zero: 暂无文章。
     one: 已经写了 1 篇文章。
-    other: "已经写了 %d 篇文章，继续努力。"
+    other: "已经写了 %d 篇文章。"
 state:
   posts: 文章
   tags: 标签
@@ -66,7 +66,7 @@ cheers:
   good: 很好
   great: 非常好
   excellent: 太棒了
-keep_on: 我会继续努力的。^_^
+keep_on: 继续努力！
 symbol:
   comma: "，"
   period: "。"
