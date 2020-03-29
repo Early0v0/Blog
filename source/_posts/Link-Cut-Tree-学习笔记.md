@@ -171,15 +171,13 @@ void splay(tree *x)
 循环处理，直到跳到树根。
 
 ```cpp
-void splay(tree *x)
+void access(tree *x)
 {
-    update(x);
-    for(tree *fa;fa=x->fa,!is_root(x);rotate(x)) {
-        if(!is_root(fa)) {
-            rotate(son_type(x)==son_type(fa)?fa:x);
-        }
+    for(tree *ori=&nul;x!=&nul;ori=x,x=x->fa) {
+        splay(x);
+        x->son[1]=ori;
+        push_up(x);
     }
-    push_up(x);
     return;
 }
 ```
