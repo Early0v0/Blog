@@ -12,7 +12,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: 100%;
+  background-position: center;
   color: var(--text-color);
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -25,6 +25,31 @@ body {
     // Remove the padding of body when the sidebar is open.
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+
+if (hexo-config('darkmode')) {
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: url(/images/background-dark.webp);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      color: var(--text-color);
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      line-height: $line-height-base;
+      cursor: url($cursor), default;
+      cursor: default if $cursor == null;
+      opacity: $opacity;
+
+      +tablet-mobile() {
+        // Remove the padding of body when the sidebar is open.
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
   }
 }
 
