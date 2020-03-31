@@ -7,7 +7,8 @@
   li {
     border-bottom: 1px solid transparent;
     color: $sidebar-nav-color;
-    cursor: pointer;
+    cursor: url($cursor-pointer), pointer;
+    cursor: pointer if $cursor-pointer == null;
     display: inline-block;
     font-size: $font-size-small;
 

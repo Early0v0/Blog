@@ -17,8 +17,9 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  cursor: url("/images/mouse.cur"), default;
-  opacity: 0.8;
+  cursor: url($cursor), default;
+  cursor: default if $cursor == null;
+  opacity: $opacity;
 
   +tablet-mobile() {
     // Remove the padding of body when the sidebar is open.
@@ -42,7 +43,8 @@ for headline in (1 .. 6) {
 
 p {
   margin: 0 0 20px 0;
-  cursor: url("/images/mouse-text.cur"), text;
+  cursor: url($cursor-text), text;
+  cursor: text if $cursor-text == null;
 }
 
 a, span.exturl {
@@ -58,7 +60,8 @@ a, span.exturl {
   }
 
   // For spanned external links.
-  cursor: url("/images/mouse-pointer.cur"), pointer;
+  cursor: url($cursor-pointer), pointer;
+  cursor: pointer if $cursor-pointer == null;
 }
 
 iframe, img, video {

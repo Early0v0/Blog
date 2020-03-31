@@ -1,7 +1,8 @@
 .sidebar-toggle {
   background: $black-deep;
   bottom: 45px;
-  cursor: pointer;
+  cursor: url($cursor-pointer), pointer;
+  cursor: pointer if $cursor-pointer == null;
   height: 14px;
   left: $b2t-position-right;
   padding: 5px;

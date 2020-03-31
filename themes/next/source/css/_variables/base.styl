@@ -348,3 +348,13 @@ $label-info                 = lighten(spin($note-info-border, -10), 86% + $lbg);
 $label-success              = lighten(spin($note-success-border, 10), 85% + $lbg);
 $label-warning              = lighten(spin($note-warning-border, 10), 83% + $lbg);
 $label-danger               = lighten(spin($note-danger-border, -10), 87% + $lbg);
+
+//Opacity
+// --------------------------------------------------
+$opacity                    = hexo-config('opacity') is a 'unit' ? hexo-config('opacity') : 1;
+
+//Cursor
+// --------------------------------------------------
+$cursor                     = hexo-config('cursor.default_url') is a 'string' ? hexo-config('cursor.default_url') : null;
+$cursor-pointer             = hexo-config('cursor.pointer_url') is a 'string' ? hexo-config('cursor.pointer_url') : null;
+$cursor-text                = hexo-config('cursor.text_url') is a 'string' ? hexo-config('cursor.text_url') : null;

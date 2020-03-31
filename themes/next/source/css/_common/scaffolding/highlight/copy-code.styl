@@ -8,7 +8,8 @@
 
 .copy-btn {
   color: $black-dim;
-  cursor: url("/images/mouse-pointer.cur"), pointer;
+  cursor: url($cursor-pointer), pointer;
+  cursor: pointer if $cursor-pointer == null;
   display: inline-block;
   font-weight: bold;
   line-height: 1.6;

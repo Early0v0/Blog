@@ -74,7 +74,8 @@
 
   time {
     border-bottom: 1px dashed $grey-dark;
-    cursor: url("/images/mouse.cur"), pointer;
+    cursor: url($cursor), pointer;
+    cursor: pointer if $cursor == null;
   }
 }
 

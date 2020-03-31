@@ -904,7 +904,15 @@ canvas_ribbon:
   alpha: 0.6 # The transparency of the ribbon
   zIndex: -1 # The display level of the ribbon
 
-# 以下为自定义插件（在 /layout/_custom/ 里）
+
+# 网页透明度
+opacity: 0.8
+
+# 鼠标样式
+cursor:
+  default_url: "/images/mouse.cur" # 替换默认鼠标
+  pointer_url: "/images/mouse-pointer.cur" # 替换链接鼠标
+  text_url: "/images/mouse-text.cur" # 替换文本鼠标
 
 # 鼠标点击特效
 cursor_effect: fireworks

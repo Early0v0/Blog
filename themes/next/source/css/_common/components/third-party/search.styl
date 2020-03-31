@@ -39,7 +39,8 @@
   }
 
   .popup-btn-close {
-    cursor: pointer;
+    cursor: url($cursor-pointer), pointer;
+    cursor: pointer if $cursor-pointer == null;
 
     &:hover .fa {
       color: $black-deep;
@@ -60,6 +61,8 @@
   border: 0;
   outline: 0;
   width: 100%;
+  cursor: url($cursor-text), text;
+  cursor: text if $cursor-text == null;
 
   &::-webkit-search-cancel-button {
     display: none;

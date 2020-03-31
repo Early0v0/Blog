@@ -10,7 +10,8 @@
   }
 
   &.back-to-top-on {
-    cursor: pointer;
+    cursor: url($cursor-pointer), pointer;
+    cursor: pointer if $cursor-pointer == null;
     opacity: $b2t-opacity;
 
     &:hover {
