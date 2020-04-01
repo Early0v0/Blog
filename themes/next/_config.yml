@@ -892,6 +892,9 @@ cursor_effect: fireworks
 # “恶搞”网页标题
 crash_cheat: true
 
+# 随机背景图片
+random_background: true
+
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING SETTINGS
