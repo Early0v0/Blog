@@ -278,4 +278,4 @@ void cut(tree *x,tree *y)
 
 ## 资料
 
-> 本文部分参考[LCT 总结 - Flash_Hu](https://www.cnblogs.com/flashhu/p/8324551.html)。
+> 本文部分参考 [LCT 总结 - Flash_Hu](https://www.cnblogs.com/flashhu/p/8324551.html)。
