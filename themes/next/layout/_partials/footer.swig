@@ -43,7 +43,7 @@
 {%- if theme.footer.powered %}
   <div class="powered-by">
     {{- __('footer.powered', next_url('https://hexo.io', 'Hexo', {class: 'theme-link'})) }}
-    {%- if theme.footer.powered.version %} v{{ hexo_version }}{%- endif %}
+    v{{ hexo_version }}
   </div>
 
   <span class="post-meta-divider">|</span>
