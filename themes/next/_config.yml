@@ -895,6 +895,9 @@ crash_cheat: true
 # 随机背景图片
 random_background: true
 
+# 不在搜索引擎中出现标签与分类界面
+noindex_in_tags_and_categories: true
+
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING SETTINGS

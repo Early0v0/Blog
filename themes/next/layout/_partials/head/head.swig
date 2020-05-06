@@ -39,6 +39,12 @@
   <meta name="baidu-site-verification" content="{{ theme.baidu_site_verification }}">
 {%- endif %}
 
+{%- if theme.noindex_in_tags_and_categories %}
+  {%- if page.type == 'tags' or page.type == 'categories' %}
+    <meta name="robots" content="noindex">
+  {%- endif %}
+{%- endif %}
+
 <link rel="stylesheet" href="{{ url_for(theme.css) }}/main.css">
 
 {{ next_font() }}
