@@ -178,11 +178,12 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/helloearly || iconfont icon-github
   E-Mail: mailto:lin_erli@outlook.com || fa fa-fw fa-envelope
   QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || fa fa-fw fa-qq
+  GitHub: https://github.com/helloearly || iconfont icon-github
   Codeforces: https://codeforces.com/profile/Early || iconfont icon-codeforces
-  #Weibo: https://weibo.com/yourname || weibo
+  微博: https://weibo.com/Early0v0 || fa fa-fw fa-weibo
+  Bilibili: https://space.bilibili.com/382766487 || iconfont icon-bilibili-fill
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
