@@ -200,7 +200,7 @@ links_settings:
   icon: link
   title: 友链
   # Available values: block | inline
-  layout: inline
+  layout: block
 
 links:
   Vxlimo's Blog: https://vxlimo.github.io
