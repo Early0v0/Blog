@@ -5,7 +5,7 @@ categories:
 tags:
   - 贪心
   - 线段树
-date: 2020-04-26 ‏‎20:24:27
+date: 2020-04-26 20:24:27
 ---
 
 [题目链接](https://loj.ac/problem/2710)
