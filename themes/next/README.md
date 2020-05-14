@@ -5,21 +5,17 @@
   <a title="Russian" href="docs/ru/README.md">🇷🇺</a>
 </div>
 
-# <div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
+# <div align="center"><a title="NexT website repository" href="https://github.com/next-theme/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
 
 <p align="center">
   «NexT» is a high quality elegant <a href="https://hexo.io">Hexo</a> theme. It is crafted from scratch with love.
 <br>
 <br>
-  <a href="https://www.npmjs.com/package/hexo-theme-next"><img src="https://img.shields.io/github/package-json/v/theme-next/hexo-theme-next?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/hexo-theme-next"><img src="https://img.shields.io/npm/v/hexo-theme-next?style=flat-square"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E=10.9.0-green?style=flat-square"></a>
   <a href="https://hexo.io"><img src="https://img.shields.io/badge/hexo-%3E=4.0.0-blue?style=flat-square&logo=hexo"></a>
-  <a href="https://github.com/theme-next/hexo-theme-next/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-%20AGPL-orange?style=flat-square&logo=gnu"></a>
-<br>
-  <a href="https://bestpractices.coreinfrastructure.org/projects/2625"><img src="https://img.shields.io/cii/level/2625?style=flat-square" title="Core Infrastructure Initiative Best Practices"></a>
-  <a href="https://travis-ci.org/theme-next/hexo-theme-next?branch=master"><img src="https://img.shields.io/travis/theme-next/hexo-theme-next/master?style=flat-square&logo=travis%20ci" title="Travis CI [Linux]"></a>
-  <a href="https://app.codacy.com/manual/theme-next/hexo-theme-next/dashboard"><img src="https://img.shields.io/codacy/grade/72f7fe7609c2438a92069f448e5a341a/master?style=flat-square&logo=codacy" title="Project Grade"></a>
-  <img src="https://img.shields.io/snyk/vulnerabilities/github/theme-next/hexo-theme-next?style=flat-square" title="Vulnerabilities">
+  <a href="https://github.com/next-theme/hexo-theme-next/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-%20AGPL-orange?style=flat-square&logo=gnu"></a>
+  <img src="https://img.shields.io/github/workflow/status/next-theme/hexo-theme-next/Linter?style=flat-square">
 <br>
   <img src="https://user-images.githubusercontent.com/16272760/63487983-da41b080-c4df-11e9-951c-64883a8a5e9b.png">
 </p>
@@ -30,7 +26,7 @@
   💟 <a href="https://muse.theme-next.org">Muse</a> | 🔯 <a href="https://mist.theme-next.org">Mist</a> | ♓️ <a href="https://pisces.theme-next.org">Pisces</a> | ♊️ <a href="https://theme-next.org">Gemini</a>
 <br>
 <br>
-  More «NexT» examples <a href="https://github.com/theme-next/awesome-next#live-preview">here</a>.
+  More «NexT» examples <a href="https://github.com/next-theme/awesome-next#live-preview">here</a>.
 </p>
 
 ## Installation
@@ -39,7 +35,7 @@ The simplest way to install is to clone the entire repository:
 
 ```sh
 $ cd hexo
-$ git clone https://github.com/theme-next/hexo-theme-next themes/next
+$ git clone https://github.com/next-theme/hexo-theme-next themes/next
 ```
 
 Or you can see [detailed installation instructions][docs-installation-url] if you want any other variant.
@@ -52,7 +48,7 @@ For example, if you want to enable `pjax` on your site, just set `pjax` to `true
 
 ```yml
 # Easily enable fast Ajax navigation on your website.
-# Dependencies: https://github.com/theme-next/theme-next-pjax
+# Dependencies: https://github.com/next-theme/pjax
 pjax: true
 ```
 
@@ -123,19 +119,11 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 <br>
 <br>
   <sub>Crowdin allows us to translate conveniently the documentation.</sub>
-<br>
-<br>
-  <a href="https://codacy.com"><img align="center" width="155" src="https://user-images.githubusercontent.com/16944225/55026017-623f8f00-5002-11e9-88bf-0d6a5884c6c2.png"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://travis-ci.com"><img align="center" width="140" src="https://raw.githubusercontent.com/travis-ci/travis-web/master/public/images/logos/TravisCI-Full-Color.png"></a>
-<br>
-<br>
-  <sub>Codacy allows us to monitor code quality, Travis CI allows us to run the test suite.</sub>
 </p>
 
-[docs-installation-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/INSTALLATION.md
-[docs-data-files-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/DATA-FILES.md
-[docs-update-5-1-x-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/UPDATE-FROM-5.1.X.md
+[docs-installation-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/INSTALLATION.md
+[docs-data-files-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/DATA-FILES.md
+[docs-update-5-1-x-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/UPDATE-FROM-5.1.X.md
 
 [t-news-url]: https://t.me/theme_next_news
 [t-chat-url]: https://t.me/theme_next
@@ -143,12 +131,12 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 [riot-url]: https://riot.im/app/#/room/#theme-next:matrix.org
 [i18n-url]: https://i18n.theme-next.org
 
-[awesome-next-url]: https://github.com/theme-next/awesome-next
-[issues-bug-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
-[issues-feat-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Feature+Request&template=feature-request.md
-[feat-req-vote-url]: https://github.com/theme-next/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
+[awesome-next-url]: https://github.com/next-theme/awesome-next
+[issues-bug-url]: https://github.com/next-theme/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
+[issues-feat-url]: https://github.com/next-theme/hexo-theme-next/issues/new?assignees=&labels=Feature+Request&template=feature-request.md
+[feat-req-vote-url]: https://github.com/next-theme/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
 
-[contributing-document-url]: https://github.com/theme-next/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
+[contributing-document-url]: https://github.com/next-theme/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
 [official-plugins-url]: https://github.com/theme-next
-[contributors-image]: https://opencollective.com/theme-next/contributors.svg?width=890
-[contributors-url]: https://github.com/theme-next/hexo-theme-next/graphs/contributors
+[contributors-image]: https://opencollective.com/next-theme/contributors.svg?width=890
+[contributors-url]: https://github.com/next-theme/hexo-theme-next/graphs/contributors

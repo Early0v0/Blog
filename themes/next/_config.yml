@@ -3,12 +3,6 @@
 # See: https://theme-next.org/docs/theme-settings/
 # ---------------------------------------------------------------
 
-# If false, merge configs from `_data/next.yml` into default configuration (rewrite).
-# If true, will fully override default configuration by options from `_data/next.yml` (override). Only for NexT settings.
-# And if true, all config from default NexT `_config.yml` have to be copied into `next.yml`. Use if you know what you are doing.
-# Useful if you want to comment some options from NexT `_config.yml` by `next.yml` without editing default config.
-override: false
-
 # Console reminder if new version released.
 reminder: false
 
@@ -22,13 +16,13 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.swig
-  #header: source/_data/header.swig
-  #sidebar: source/_data/sidebar.swig
-  #postMeta: source/_data/post-meta.swig
-  #postBodyEnd: source/_data/post-body-end.swig
-  #footer: source/_data/footer.swig
-  #bodyEnd: source/_data/body-end.swig
+  #head: source/_data/head.njk
+  #header: source/_data/header.njk
+  #sidebar: source/_data/sidebar.njk
+  #postMeta: source/_data/post-meta.njk
+  #postBodyEnd: source/_data/post-body-end.njk
+  #footer: source/_data/footer.njk
+  #bodyEnd: source/_data/body-end.njk
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
@@ -56,13 +50,12 @@ footer:
 
   # Icon between year and copyright info.
   icon:
-    # Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/
-    # `heart` is recommended with animation in red (#ff0000).
-    name: user
+    # Icon name in Font Awesome. See: https://fontawesome.com/icons
+    name: fa fa-heart
     # If you want to animate the icon, set it to true.
     animated: false
     # Change the color of icon, using Hex Code.
-    color: "#808080"
+    color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
   copyright:
@@ -117,14 +110,14 @@ darkmode: true
 # When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || home
-  about: /about/ || user
-  tags: /tags/ || tags
-  categories: /categories/ || list-ul
-  archives: /archives/ || archive
-  #schedule: /schedule/ || calendar
-  #sitemap: /sitemap.xml || sitemap
-  #commonweal: /404/ || heartbeat
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-list-ul
+  archives: /archives/ || fa fa-archive
+  #schedule: /schedule/ || fa fa-calendar
+  #sitemap: /sitemap.xml || fa fa-sitemap
+  #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -178,18 +171,18 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  E-Mail: mailto:lin_erli@outlook.com || fa fa-fw fa-envelope
-  QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || fa fa-fw fa-qq
+  E-Mail: mailto:lin_erli@outlook.com || fa fa-envelope fa-fw
+  QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || fab fa-qq fa-fw
   GitHub: https://github.com/helloearly || iconfont icon-github
   Codeforces: https://codeforces.com/profile/Early || iconfont icon-codeforces
-  微博: https://weibo.com/Early0v0 || fa fa-fw fa-weibo
+  微博: https://weibo.com/Early0v0 || fab fa-weibo fa-fw
   Bilibili: https://space.bilibili.com/382766487 || iconfont icon-bilibili-fill
-  #Twitter: https://twitter.com/yourname || twitter
-  #FB Page: https://www.facebook.com/yourname || facebook
-  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
-  #YouTube: https://youtube.com/yourname || youtube
-  #Instagram: https://instagram.com/yourname || instagram
-  #Skype: skype:yourname?call|chat || skype
+  #Twitter: https://twitter.com/yourname || fab fa-twitter
+  #FB Page: https://www.facebook.com/yourname || fab fa-facebook
+  #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
+  #YouTube: https://youtube.com/yourname || fab fa-youtube
+  #Instagram: https://instagram.com/yourname || fab fa-instagram
+  #Skype: skype:yourname?call|chat || fab fa-skype
 
 social_icons:
   enable: true
@@ -198,7 +191,7 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: link
+  icon: fa fa-link
   title: 友链
   # Available values: block | inline
   layout: block
@@ -228,7 +221,7 @@ chat:
   enable: false
   #service: chatra
   #service: tidio
-  icon: comment # Icon name in Font Awesome, set false to disable icon.
+  icon: fa fa-comment # Icon name in Font Awesome, set false to disable icon.
   text: Chat # Button text, change it as you wish.
 
 
@@ -254,7 +247,7 @@ post_meta:
   categories: true
 
 # Post wordcount display settings
-# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+# Dependencies: https://github.com/next-theme/hexo-symbols-count-time
 symbols_count_time:
   separated_meta: true
   item_text_post: true
@@ -280,10 +273,10 @@ reward:
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
 follow_me:
-  #Twitter: https://twitter.com/username || twitter
-  #Telegram: https://t.me/channel_name || telegram
-  #WeChat: /images/wechat_channel.jpg || wechat
-  #RSS: /atom.xml || rss
+  #Twitter: https://twitter.com/username || fab fa-twitter
+  #Telegram: https://t.me/channel_name || fab fa-telegram
+  #WeChat: /images/wechat_channel.jpg || fab fa-weixin
+  #RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
@@ -358,9 +351,10 @@ custom_logo: #/uploads/custom-logo.jpg
 
 codeblock:
   # Code Highlight theme
-  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
-  # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: normal
+  # See: https://github.com/highlightjs/highlight.js/tree/master/src/styles
+  theme:
+    light: default
+    dark: dark
   # Add copy button on codeblock
   copy_button:
     enable: true
@@ -494,7 +488,7 @@ baidu_push: false
 # ---------------------------------------------------------------
 # Third Party Plugins & Services Settings
 # See: https://theme-next.org/docs/third-party-services/
-# More plugins: https://github.com/theme-next/awesome-next
+# More plugins: https://github.com/next-theme/awesome-next
 # You may need to install dependencies or set CDN URLs in `vendors`
 # There are two different CDN providers by default:
 #   - jsDelivr (cdn.jsdelivr.net), works everywhere even in China
@@ -521,7 +515,7 @@ math:
     copy_tex: true
 
 # Easily enable fast Ajax navigation on your website.
-# Dependencies: https://github.com/theme-next/theme-next-pjax
+# Dependencies: https://github.com/next-theme/pjax
 pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
@@ -621,13 +615,16 @@ changyan:
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
   enable: false
-  appid: # Your leancloud application appid
-  appkey: # Your leancloud application appkey
+  appId: # Your leancloud application appid
+  appKey: # Your leancloud application appkey
   notify: false # Mail notifier
   verify: false # Verification code
   placeholder: Just go go # Comment box placeholder
   avatar: mm # Gravatar style
-  guest_info: nick,mail,link # Custom comment header
+  meta: # Custom comment header
+    - nick
+    - mail
+    - link
   pageSize: 10 # Pagination size
   language: # Language, available values: en, zh-cn
   visitor: false # Article reading statistic
@@ -725,11 +722,11 @@ firestore:
 busuanzi_count:
   enable: false
   total_visitors: true
-  total_visitors_icon: user
+  total_visitors_icon: fa fa-user
   total_views: true
-  total_views_icon: eye
+  total_views_icon: fa fa-eye
   post_views: true
-  post_views_icon: eye
+  post_views_icon: fa fa-eye
 
 
 # ---------------------------------------------------------------
@@ -749,7 +746,7 @@ algolia_search:
     hits_stats: "${hits} results found in ${time} ms"
 
 # Local Search
-# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+# Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
   enable: true
   # If auto, trigger search by changing input.
@@ -815,7 +812,7 @@ tabs:
 # PDF tag
 # NexT will try to load pdf files natively, if failed, pdf.js will be used.
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
-# See: https://github.com/theme-next/theme-next-pdf
+# See: https://github.com/next-theme/theme-next-pdf
 pdf:
   enable: false
   # Default height
@@ -853,7 +850,7 @@ motion:
     sidebar: slideDownIn
 
 # Progress bar in the top during page loading.
-# Dependencies: https://github.com/theme-next/theme-next-pace
+# Dependencies: https://github.com/next-theme/theme-next-pace
 # For more information: https://github.com/HubSpot/pace
 pace:
   enable: false
@@ -863,7 +860,7 @@ pace:
   theme: minimal
 
 # JavaScript 3D library.
-# Dependencies: https://github.com/theme-next/theme-next-three
+# Dependencies: https://github.com/next-theme/theme-next-three
 three:
   enable: false
   three_waves: false
@@ -871,7 +868,7 @@ three:
   canvas_sphere: false
 
 # Canvas-ribbon
-# Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
+# Dependencies: https://github.com/next-theme/theme-next-canvas-ribbon
 # For more information: https://github.com/zproo/canvas-ribbon
 canvas_ribbon:
   enable: false
@@ -919,9 +916,9 @@ vendors:
   # anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
   anime:
 
-  # Internal version: 4.7.0
-  # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
-  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+  # Internal version: 5.13.0
+  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
+  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css
   fontawesome:
 
   # MathJax
@@ -938,7 +935,7 @@ vendors:
   copy_tex_css:
 
   # Internal version: 0.2.8
-  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  # pjax: //cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js
   pjax:
 
   # FancyBox
@@ -1012,17 +1009,17 @@ vendors:
   pace_css:
 
   # Internal version: 1.0.0
-  # three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
-  # three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js
-  # canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js
-  # canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js
+  # three: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/three.min.js
+  # three_waves: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/three-waves.min.js
+  # canvas_lines: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/canvas_lines.min.js
+  # canvas_sphere: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/canvas_sphere.min.js
   three:
   three_waves:
   canvas_lines:
   canvas_sphere:
 
   # Internal version: 1.0.0
-  # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
+  # canvas_ribbon: //cdn.jsdelivr.net/gh/next-theme/theme-next-canvas-ribbon@1/canvas-ribbon.js
   canvas_ribbon:
 
 # Assets

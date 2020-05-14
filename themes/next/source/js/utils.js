@@ -53,6 +53,7 @@ NexT.utils = {
       link.rel = 'noopener external nofollow noreferrer';
       link.target = '_blank';
       link.className = element.className;
+      link.title = element.title;
       link.innerHTML = element.innerHTML;
       element.parentNode.replaceChild(link, element);
     });
@@ -63,15 +64,18 @@ NexT.utils = {
    */
   registerCopyCode: function() {
     document.querySelectorAll('figure.highlight').forEach(element => {
-      const box = document.createElement('div');
-      element.wrap(box);
-      box.classList.add('highlight-container');
-      box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard"></i></div>');
-      var button = element.parentNode.querySelector('.copy-btn');
+      element.querySelectorAll('.code .line span').forEach(span => {
+        span.classList.forEach(name => {
+          span.classList.remove(name);
+          span.classList.add(`hljs-${name}`);
+        });
+      });
+      element.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard fa-fw"></i></div>');
+      const button = element.querySelector('.copy-btn');
       button.addEventListener('click', event => {
-        var target = event.currentTarget;
-        var code = [...target.parentNode.querySelectorAll('.code .line')].map(line => line.innerText).join('\n');
-        var ta = document.createElement('textarea');
+        const target = event.currentTarget;
+        const code = [...target.parentNode.querySelectorAll('.code .line')].map(line => line.innerText).join('\n');
+        const ta = document.createElement('textarea');
         ta.style.top = window.scrollY + 'px'; // Prevent page scrolling
         ta.style.position = 'absolute';
         ta.style.opacity = '0';
@@ -83,9 +87,9 @@ NexT.utils = {
         ta.select();
         ta.setSelectionRange(0, code.length);
         ta.readOnly = false;
-        var result = document.execCommand('copy');
+        const result = document.execCommand('copy');
         if (CONFIG.copycode.show_result) {
-          target.querySelector('i').className = result ? 'fa fa-check' : 'fa fa-times';
+          target.querySelector('i').className = result ? 'fa fa-check fa-fw' : 'fa fa-times fa-fw';
         }
         ta.blur(); // For iOS
         target.blur();
@@ -97,7 +101,7 @@ NexT.utils = {
       });
       button.addEventListener('mouseleave', event => {
         setTimeout(() => {
-          event.target.querySelector('i').className = 'fa fa-clipboard';
+          event.target.querySelector('i').className = 'fa fa-clipboard fa-fw';
         }, 300);
       });
     });

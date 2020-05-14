@@ -1,6 +1,6 @@
 /* global instantsearch, algoliasearch, CONFIG */
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const algoliaSettings = CONFIG.algolia;
   const { indexName, appID, apiKey } = algoliaSettings;
 
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
   document.querySelector('.popup-btn-close').addEventListener('click', onPopupClose);
-  window.addEventListener('pjax:success', onPopupClose);
+  document.addEventListener('pjax:success', onPopupClose);
   window.addEventListener('keyup', event => {
     if (event.key === 'Escape') {
       onPopupClose();
