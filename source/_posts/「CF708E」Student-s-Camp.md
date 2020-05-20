@@ -9,7 +9,7 @@ tags:
 date: 2020-02-29 15:21:52
 ---
 
-[题目链接](https://codeforces.ml/contest/708/problem/E)
+[题目链接](https://codeforces.com/contest/708/problem/E)
 
 ## 题意
 
