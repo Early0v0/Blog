@@ -5,7 +5,7 @@
   🇷🇺
 </div>
 
-# <div align="center"><a title="Репозиторий сайта NexT" href="https://github.com/next-theme/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
+# <div align="center"><a title="Репозиторий сайта NexT" href="https://github.com/next-theme/theme-next-docs"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
 
 <p align="center">
   «NexT» — элегантная высококачественная тема под <a href="https://hexo.io">Hexo</a>. Сделана с нуля, с любовью.
@@ -23,7 +23,7 @@
 ## Демо
 
 <p align="center">
-  💟 <a href="https://muse.theme-next.org">Muse</a> | 🔯 <a href="https://mist.theme-next.org">Mist</a> | ♓️ <a href="https://pisces.theme-next.org">Pisces</a> | ♊️ <a href="https://theme-next.org">Gemini</a>
+  💟 <a href="https://theme-next.js.org/muse/">Muse</a> | 🔯 <a href="https://theme-next.js.org/mist/">Mist</a> | ♓️ <a href="https://theme-next.js.org/pisces/">Pisces</a> | ♊️ <a href="https://theme-next.js.org">Gemini</a>
 <br>
 <br>
   Больше примеров «NexT» <a href="https://github.com/next-theme/awesome-next#live-preview">здесь</a>.
@@ -71,7 +71,7 @@ $ git pull
 ## Обратная связь
 
 * Посетите [Awesome NexT][awesome-next-url] список.
-* Вступить в наши [Telegram][t-chat-url] / [Gitter][gitter-url] / [Riot][riot-url] чаты.
+* Вступить в наши [Gitter][gitter-url] чаты.
 * [Добавить или улучшить перевод][i18n-url] за несколько секунд.
 * Сообщить об ошибке в разделе [GitHub Issues][issues-bug-url].
 * Запросить новую возможность на [GitHub][issues-feat-url].
@@ -79,7 +79,9 @@ $ git pull
 
 ## Содействие
 
-[![][contributors-image]][contributors-url]
+- [iissnan/hexo-theme-next](https://github.com/iissnan/hexo-theme-next/graphs/contributors)
+- [theme-next/hexo-theme-next](https://github.com/theme-next/hexo-theme-next/graphs/contributors)
+- [next-theme/hexo-theme-next](https://github.com/next-theme/hexo-theme-next/graphs/contributors)
 
 Приветсвуется любое содействие, не стесняйтесь сообщать «Баги», брать «Форки» и вливать «Пулы».
 
@@ -101,15 +103,12 @@ $ git pull
   <sub>Crowdin позволяет нам удобно переводить документацию.</sub>
 </p>
 
-[docs-installation-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/ru/INSTALLATION.md
-[docs-data-files-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/ru/DATA-FILES.md
-[docs-update-5-1-x-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/ru/UPDATE-FROM-5.1.X.md
+[docs-installation-url]: https://theme-next.js.org/docs/getting-started/installation.html
+[docs-data-files-url]: https://theme-next.js.org/docs/getting-started/configuration.html
+[docs-update-5-1-x-url]: https://theme-next.js.org/docs/getting-started/update-from-v5.html
 
-[t-news-url]: https://t.me/theme_next_news
-[t-chat-url]: https://t.me/theme_next
-[gitter-url]: https://gitter.im/theme-next
-[riot-url]: https://riot.im/app/#/room/#theme-next:matrix.org
-[i18n-url]: https://i18n.theme-next.org
+[gitter-url]: https://gitter.im/hexo-next
+[i18n-url]: https://crowdin.com/project/hexo-theme-next
 
 [awesome-next-url]: https://github.com/next-theme/awesome-next
 [issues-bug-url]: https://github.com/next-theme/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
@@ -117,6 +116,4 @@ $ git pull
 [feat-req-vote-url]: https://github.com/next-theme/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
 
 [contributing-document-url]: https://github.com/next-theme/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
-[official-plugins-url]: https://github.com/theme-next
-[contributors-image]: https://opencollective.com/next-theme/contributors.svg?width=890
-[contributors-url]: https://github.com/next-theme/hexo-theme-next/graphs/contributors
+[official-plugins-url]: https://github.com/next-theme

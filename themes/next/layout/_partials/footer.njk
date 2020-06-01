@@ -49,9 +49,9 @@
   <span class="post-meta-divider">|</span>
 
   <div class="theme-info">
-    {%- set next_site = 'https://theme-next.org' %}
+    {%- set next_site = 'https://theme-next.js.org' %}
     {%- if theme.scheme !== 'Gemini' %}
-      {%- set next_site = 'https://' + theme.scheme | lower + '.theme-next.org' %}
+      {%- set next_site = 'https://theme-next.js.org/' + theme.scheme | lower + '/' %}
     {%- endif %}
     {{- __('footer.theme') }} – {{ next_url(next_site, 'NexT.' + theme.scheme, {class: 'theme-link'}) }}
     v{{ next_version }}

@@ -1,5 +1,5 @@
 /**
- * button.js | https://theme-next.org/docs/tag-plugins/button
+ * button.js | https://theme-next.js.org/docs/tag-plugins/button
  */
 
 /* global hexo */
@@ -23,8 +23,8 @@ function postButton(args) {
   title = title.trim();
 
   return `<a class="btn" href="${url}"${title.length > 0 ? ` title="${title}"` : ''}>
-            ${icon.length > 0 ? `<i class="${icon}"></i>` : ''}${text}
-          </a>`;
+${icon.length > 0 ? `<i class="${icon}"></i>` : ''}${text}
+</a>`;
 }
 
 hexo.extend.tag.register('button', postButton, {ends: false});

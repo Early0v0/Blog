@@ -5,7 +5,7 @@
   <a title="俄语" href="../ru/README.md">🇷🇺</a>
 </div>
 
-# <div align="center"><a title="NexT website repository" href="https://github.com/next-theme/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
+# <div align="center"><a title="NexT website repository" href="https://github.com/next-theme/theme-next-docs"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
 
 <p align="center">
   «NexT» 是一款风格优雅的高质量 <a href="https://hexo.io">Hexo</a> 主题，自点点滴滴中用爱雕琢而成。
@@ -23,7 +23,7 @@
 ## 即时预览
 
 <p align="center">
-  💟 <a href="https://muse.theme-next.org">Muse</a> | 🔯 <a href="https://mist.theme-next.org">Mist</a> | ♓️ <a href="https://pisces.theme-next.org">Pisces</a> | ♊️ <a href="https://theme-next.org">Gemini</a>
+  💟 <a href="https://theme-next.js.org/muse/">Muse</a> | 🔯 <a href="https://theme-next.js.org/mist/">Mist</a> | ♓️ <a href="https://theme-next.js.org/pisces/">Pisces</a> | ♊️ <a href="https://theme-next.js.org">Gemini</a>
 <br>
 <br>
   更多 «NexT» 的例子参见<a href="https://github.com/next-theme/awesome-next#live-preview">这里</a>。
@@ -85,7 +85,7 @@ $ git pull
 ## 反馈
 
 * 浏览 [Awesome NexT][awesome-next-url] 列表，与其它用户分享插件和教程。
-* 加入我们的 [Telegram][t-chat-url] / [Gitter][gitter-url] / [Riot][riot-url] 聊天。
+* 加入我们的 [Gitter][gitter-url] 聊天。
 * 请花几秒钟来[添加或修正翻译][i18n-url]。
 * 在 [GitHub Issues][issues-bug-url] 报告Bug。
 * 在 [GitHub][issues-feat-url] 请求新的功能。
@@ -99,7 +99,9 @@ $ git pull
 
 ## 贡献者
 
-[![][contributors-image]][contributors-url]
+- [iissnan/hexo-theme-next](https://github.com/iissnan/hexo-theme-next/graphs/contributors)
+- [theme-next/hexo-theme-next](https://github.com/theme-next/hexo-theme-next/graphs/contributors)
+- [next-theme/hexo-theme-next](https://github.com/next-theme/hexo-theme-next/graphs/contributors)
 
 ## 鸣谢
 
@@ -119,15 +121,12 @@ $ git pull
   <sub>Crowdin 容许我们方便地翻译文档。</sub>
 </p>
 
-[docs-installation-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/zh-CN/INSTALLATION.md
-[docs-data-files-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/zh-CN/DATA-FILES.md
-[docs-update-5-1-x-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md
+[docs-installation-url]: https://theme-next.js.org/docs/getting-started/installation.html
+[docs-data-files-url]: https://theme-next.js.org/docs/getting-started/configuration.html
+[docs-update-5-1-x-url]: https://theme-next.js.org/docs/getting-started/update-from-v5.html
 
-[t-news-url]: https://t.me/theme_next_news
-[t-chat-url]: https://t.me/theme_next_chinese
-[gitter-url]: https://gitter.im/theme-next
-[riot-url]: https://riot.im/app/#/room/#theme-next:matrix.org
-[i18n-url]: https://i18n.theme-next.org
+[gitter-url]: https://gitter.im/hexo-next
+[i18n-url]: https://crowdin.com/project/hexo-theme-next
 
 [awesome-next-url]: https://github.com/next-theme/awesome-next
 [issues-bug-url]: https://github.com/next-theme/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
@@ -135,6 +134,4 @@ $ git pull
 [feat-req-vote-url]: https://github.com/next-theme/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
 
 [contributing-document-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/zh-CN/CONTRIBUTING.md
-[official-plugins-url]: https://github.com/theme-next
-[contributors-image]: https://opencollective.com/next-theme/contributors.svg?width=890
-[contributors-url]: https://github.com/next-theme/hexo-theme-next/graphs/contributors
+[official-plugins-url]: https://github.com/next-theme

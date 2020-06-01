@@ -5,9 +5,9 @@
   <a title="俄语" href="../ru/CONTRIBUTING.md">:ru:</a>
 </div>
 
-# <div align="center"><a title="Go to homepage" href="https://theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
+# <div align="center"><a title="Go to homepage" href="https://theme-next.js.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
 
-首先，非常感谢大家抽出宝贵时间来让我们的 NexT 主题越变越好。在这里，我们介绍一下 [NexT 主题及其子模块](https://github.com/theme-next) 的开源贡献指南。不过，我们希望大家不要局限于此，更欢迎大家随时进行补充。
+首先，非常感谢大家抽出宝贵时间来让我们的 NexT 主题越变越好。在这里，我们介绍一下 [NexT 主题及其子模块](https://github.com/next-theme) 的开源贡献指南。不过，我们希望大家不要局限于此，更欢迎大家随时进行补充。
 
 ## 目录
 
@@ -35,22 +35,13 @@
 
 #### 阅读文档
 
-如果你在使用过程中遇到了问题，你可以查阅 [FAQs](https://theme-next.org/docs/faqs) 或者 [NexT 帮助文档](https://theme-next.org/docs/troubleshooting)。
+如果你在使用过程中遇到了问题，你可以查阅 [FAQs](https://theme-next.js.org/docs/faqs) 或者 [NexT 帮助文档](https://theme-next.js.org/docs/troubleshooting)。
 
 另外，你也可以通过 [这里](https://github.com/next-theme/hexo-theme-next/search?q=&type=Issues&utf8=%E2%9C%93) 进行大致检索，有些问题已经得到解答，你可以自行解决。对于没有解决的 Issue，你也可以继续提问。
 
 #### 快速调试指南
 
-在 GitHub 上提交 Issue 前，请先通过以下方法 debug：
-
-* 执行`hexo clean`，清除浏览器缓存，并禁用 CDN 服务（例如 Cloudflare Rocket Loader）；
-* 切换到其它主题并检查 bug 是否仍然存在（例如使用默认主题 landscape）。换言之，证明这是 NexT 主题而非来自 Hexo 的 bug；
-* 将 NexT 主题升级到最新版；
-* 将 Hexo 和 Hexo 插件升级到最新版；
-* 将 Node.js 和 `npm` 升级到最新版；
-* 卸载不必要的 Hexo 插件，或重新通过 `npm install --save` 安装插件。
-
-如果你得到了来自 Hexo 或浏览器控制台的报错信息，请在 Google / Stackoverflow / GitHub Issue 中搜寻，或在提交 Issue 时报告给我们。
+在 GitHub 上提交 Issue 前，请先查看我们的 [快速调试指南](https://theme-next.js.org/docs/troubleshooting.html#Quick-Debug-Instructions) 来 debug。
 
 如果你在使用过程中发现了 Bug，请再次确认 Bug 在 [最新发布版本](https://github.com/next-theme/hexo-theme-next/releases/latest) 中是否重现。如果 Bug 重现，欢迎你到我们的 [主题仓库](https://github.com/next-theme/hexo-theme-next) 中 [反馈 Bug](#reporting-bugs) 或者 [提交功能需求](#提交功能需求)，也更期待您 [提交合并请求](#提交合并请求)。
 
