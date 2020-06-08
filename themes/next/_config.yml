@@ -173,7 +173,7 @@ site_state: true
 social:
   E-Mail: mailto:lin_erli@outlook.com || fa fa-envelope fa-fw
   QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1127470892 || fab fa-qq fa-fw
-  GitHub: https://github.com/helloearly || iconfont icon-github
+  GitHub: https://github.com/early0v0 || iconfont icon-github
   Codeforces: https://codeforces.com/profile/Early || iconfont icon-codeforces
   微博: https://weibo.com/Early0v0 || fab fa-weibo fa-fw
   Bilibili: https://space.bilibili.com/382766487 || iconfont icon-bilibili-fill
@@ -389,7 +389,7 @@ bookmark:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: true
-  permalink: https://github.com/helloearly/Blog
+  permalink: https://github.com/early0v0/Blog
   title: My GitHub Repository
 
 

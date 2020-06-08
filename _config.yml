@@ -107,5 +107,5 @@ symbols_count_time:
 ## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
 #deploy:
 #  type: git
-#  repository: https://github.com/helloearly/helloearly.github.io.git
+#  repository: https://github.com/username/username.github.io.git
 #  branch: master
