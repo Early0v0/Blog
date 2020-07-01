@@ -70,6 +70,7 @@ NexT.utils = {
           span.classList.add(`hljs-${name}`);
         });
       });
+      if (!CONFIG.copycode) return;
       element.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard fa-fw"></i></div>');
       const button = element.querySelector('.copy-btn');
       button.addEventListener('click', event => {
@@ -82,26 +83,18 @@ NexT.utils = {
         ta.readOnly = true;
         ta.value = code;
         document.body.append(ta);
-        const selection = document.getSelection();
-        const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
         ta.select();
         ta.setSelectionRange(0, code.length);
         ta.readOnly = false;
         const result = document.execCommand('copy');
-        if (CONFIG.copycode.show_result) {
-          target.querySelector('i').className = result ? 'fa fa-check-circle fa-fw' : 'fa fa-times-circle fa-fw';
-        }
+        target.querySelector('i').className = result ? 'fa fa-check-circle fa-fw' : 'fa fa-times-circle fa-fw';
         ta.blur(); // For iOS
         target.blur();
-        if (selected) {
-          selection.removeAllRanges();
-          selection.addRange(selected);
-        }
         document.body.removeChild(ta);
       });
-      button.addEventListener('mouseleave', event => {
+      element.addEventListener('mouseleave', () => {
         setTimeout(() => {
-          event.target.querySelector('i').className = 'fa fa-clipboard fa-fw';
+          button.querySelector('i').className = 'fa fa-clipboard fa-fw';
         }, 300);
       });
     });
@@ -131,14 +124,13 @@ NexT.utils = {
         let width = Number(element.width);
         let height = Number(element.height);
         if (width && height) {
-          element.parentNode.style.paddingTop = (height / width * 100) + '%';
+          box.style.paddingTop = (height / width * 100) + '%';
         }
       }
     });
   },
 
   registerScrollPercent: function() {
-    const THRESHOLD = 50;
     const backToTop = document.querySelector('.back-to-top');
     const readingProgressBar = document.querySelector('.reading-progress-bar');
     // For init back to top in sidebar if page was scrolled after page refresh.
@@ -149,13 +141,23 @@ NexT.utils = {
         const contentVisibilityHeight = docHeight > winHeight ? docHeight - winHeight : document.body.scrollHeight - winHeight;
         const scrollPercent = Math.min(100 * window.scrollY / contentVisibilityHeight, 100);
         if (backToTop) {
-          backToTop.classList.toggle('back-to-top-on', window.scrollY > THRESHOLD);
+          backToTop.classList.toggle('back-to-top-on', Math.round(scrollPercent) >= 5);
           backToTop.querySelector('span').innerText = Math.round(scrollPercent) + '%';
         }
         if (readingProgressBar) {
           readingProgressBar.style.width = scrollPercent.toFixed(2) + '%';
         }
       }
+      if (!Array.isArray(NexT.utils.sections)) return;
+      let index = NexT.utils.sections.findIndex(element => {
+        return element && element.getBoundingClientRect().top > 0;
+      });
+      if (index === -1) {
+        index = NexT.utils.sections.length - 1;
+      } else if (index > 0) {
+        index--;
+      }
+      this.activateNavByIndex(index);
     });
 
     backToTop && backToTop.addEventListener('click', () => {
@@ -181,14 +183,13 @@ NexT.utils = {
         if (!target.classList.contains('active')) {
           // Add & Remove active class on `nav-tabs` & `tab-content`.
           [...target.parentNode.children].forEach(element => {
-            element.classList.remove('active');
+            element.classList.toggle('active', element === target);
           });
-          target.classList.add('active');
+          // https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
           const tActive = document.getElementById(target.querySelector('a').getAttribute('href').replace('#', ''));
           [...tActive.parentNode.children].forEach(element => {
-            element.classList.remove('active');
+            element.classList.toggle('active', element === tActive);
           });
-          tActive.classList.add('active');
           // Trigger event
           tActive.dispatchEvent(new Event('tabs:click', {
             bubbles: true
@@ -203,7 +204,7 @@ NexT.utils = {
   registerCanIUseTag: function() {
     // Get responsive height passed from iframe.
     window.addEventListener('message', ({ data }) => {
-      if ((typeof data === 'string') && data.includes('ciu_embed')) {
+      if (typeof data === 'string' && data.includes('ciu_embed')) {
         const featureID = data.split(':')[1];
         const height = data.split(':')[2];
         document.querySelector(`iframe[data-feature=${featureID}]`).style.height = parseInt(height, 10) + 5 + 'px';
@@ -212,12 +213,10 @@ NexT.utils = {
   },
 
   registerActiveMenuItem: function() {
-    document.querySelectorAll('.menu-item').forEach(element => {
-      const target = element.querySelector('a[href]');
-      if (!target) return;
+    document.querySelectorAll('.menu-item a[href]').forEach(target => {
       const isSamePath = target.pathname === location.pathname || target.pathname === location.pathname.replace('index.html', '');
       const isSubPath = !CONFIG.root.startsWith(target.pathname) && location.pathname.startsWith(target.pathname);
-      element.classList.toggle('menu-item-active', target.hostname === location.hostname && (isSamePath || isSubPath));
+      target.classList.toggle('menu-item-active', target.hostname === location.hostname && (isSamePath || isSubPath));
     });
   },
 
@@ -234,12 +233,10 @@ NexT.utils = {
   },
 
   registerSidebarTOC: function() {
-    const navItems = document.querySelectorAll('.post-toc li');
-    const sections = [...navItems].map(element => {
-      const link = element.querySelector('a.nav-link');
-      const target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
+    this.sections = [...document.querySelectorAll('.post-toc li a.nav-link')].map(element => {
+      const target = document.getElementById(decodeURI(element.getAttribute('href')).replace('#', ''));
       // TOC item animation navigate.
-      link.addEventListener('click', event => {
+      element.addEventListener('click', event => {
         event.preventDefault();
         const offset = target.getBoundingClientRect().top + window.scrollY;
         window.anime({
@@ -251,84 +248,29 @@ NexT.utils = {
       });
       return target;
     });
+  },
 
+  activateNavByIndex: function(index) {
+    const target = document.querySelectorAll('.post-toc li a.nav-link')[index];
+    if (!target || target.classList.contains('active-current')) return;
+
+    document.querySelectorAll('.post-toc .active').forEach(element => {
+      element.classList.remove('active', 'active-current');
+    });
+    target.classList.add('active', 'active-current');
+    let parent = target.parentNode;
+    while (!parent.matches('.post-toc')) {
+      if (parent.matches('li')) parent.classList.add('active');
+      parent = parent.parentNode;
+    }
+    // Scrolling to center active TOC element if TOC content is taller then viewport.
     const tocElement = document.querySelector('.post-toc-wrap');
-    function activateNavByIndex(target) {
-      if (target.classList.contains('active-current')) return;
-
-      document.querySelectorAll('.post-toc .active').forEach(element => {
-        element.classList.remove('active', 'active-current');
-      });
-      target.classList.add('active', 'active-current');
-      let parent = target.parentNode;
-      while (!parent.matches('.post-toc')) {
-        if (parent.matches('li')) parent.classList.add('active');
-        parent = parent.parentNode;
-      }
-      // Scrolling to center active TOC element if TOC content is taller then viewport.
-      window.anime({
-        targets  : tocElement,
-        duration : 200,
-        easing   : 'linear',
-        scrollTop: tocElement.scrollTop - (tocElement.offsetHeight / 2) + target.getBoundingClientRect().top - tocElement.getBoundingClientRect().top
-      });
-    }
-
-    function findIndex(entries) {
-      let index = 0;
-      let entry = entries[index];
-      if (entry.boundingClientRect.top > 0) {
-        index = sections.indexOf(entry.target);
-        return index === 0 ? 0 : index - 1;
-      }
-      for (; index < entries.length; index++) {
-        if (entries[index].boundingClientRect.top <= 0) {
-          entry = entries[index];
-        } else {
-          return sections.indexOf(entry.target);
-        }
-      }
-      return sections.indexOf(entry.target);
-    }
-
-    function createIntersectionObserver(marginTop) {
-      marginTop = Math.floor(marginTop + 10000);
-      let intersectionObserver = new IntersectionObserver((entries, observe) => {
-        let scrollHeight = document.documentElement.scrollHeight + 100;
-        if (scrollHeight > marginTop) {
-          observe.disconnect();
-          createIntersectionObserver(scrollHeight);
-          return;
-        }
-        let index = findIndex(entries);
-        activateNavByIndex(navItems[index]);
-      }, {
-        rootMargin: marginTop + 'px 0px -100% 0px',
-        threshold : 0
-      });
-      sections.forEach(element => {
-        element && intersectionObserver.observe(element);
-      });
-    }
-    createIntersectionObserver(document.documentElement.scrollHeight);
-  },
-
-  hasMobileUA: function() {
-    let ua = navigator.userAgent;
-    let pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
-    return pa.test(ua);
-  },
-
-  isTablet: function() {
-    return window.screen.width < 992 && window.screen.width > 767 && this.hasMobileUA();
-  },
-
-  isMobile: function() {
-    return window.screen.width < 767 && this.hasMobileUA();
-  },
-
-  isDesktop: function() {
-    return !this.isTablet() && !this.isMobile();
+    window.anime({
+      targets  : tocElement,
+      duration : 200,
+      easing   : 'linear',
+      scrollTop: tocElement.scrollTop - (tocElement.offsetHeight / 2) + target.getBoundingClientRect().top - tocElement.getBoundingClientRect().top
+    });
   },
 
   supportsPDFs: function() {
@@ -345,33 +287,21 @@ NexT.utils = {
    */
   initSidebarDimension: function() {
     const sidebarNav = document.querySelector('.sidebar-nav');
-    const sidebarNavHeight = sidebarNav.style.display !== 'none' ? sidebarNav.offsetHeight : 0;
+    const sidebarb2t = document.querySelector('.sidebar-inner .back-to-top');
+    const sidebarb2tHeight = sidebarb2t ? sidebarb2t.offsetHeight : 0;
     const sidebarOffset = CONFIG.sidebar.offset || 12;
-    const sidebarb2tHeight = CONFIG.back2top.enable && CONFIG.back2top.sidebar ? document.querySelector('.back-to-top').offsetHeight : 0;
-    let sidebarSchemePadding = (CONFIG.sidebar.padding * 2) + sidebarNavHeight + sidebarb2tHeight;
-    // Margin of sidebar b2t: -4px -10px -18px, brings a different of 22px.
-    if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') sidebarSchemePadding += (sidebarOffset * 2) - 22;
+    let sidebarSchemePadding = (CONFIG.sidebar.padding * 2) + sidebarNav.offsetHeight + sidebarb2tHeight;
+    if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') sidebarSchemePadding += sidebarOffset * 2;
     // Initialize Sidebar & TOC Height.
     const sidebarWrapperHeight = document.body.offsetHeight - sidebarSchemePadding + 'px';
-    document.querySelector('.site-overview-wrap').style.maxHeight = sidebarWrapperHeight;
-    document.querySelector('.post-toc-wrap').style.maxHeight = sidebarWrapperHeight;
+    document.documentElement.style.setProperty('--sidebar-wrapper-height', sidebarWrapperHeight);
   },
 
   updateSidebarPosition: function() {
-    const sidebarNav = document.querySelector('.sidebar-nav');
-    const hasTOC = document.querySelector('.post-toc');
-    if (hasTOC) {
-      sidebarNav.style.display = '';
-      sidebarNav.classList.add('motion-element');
-      document.querySelector('.sidebar-nav-toc').click();
-    } else {
-      sidebarNav.style.display = 'none';
-      sidebarNav.classList.remove('motion-element');
-      document.querySelector('.sidebar-nav-overview').click();
-    }
     NexT.utils.initSidebarDimension();
-    if (!this.isDesktop() || CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') return;
+    if (window.screen.width < 992 || CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') return;
     // Expand sidebar on post detail page by default, when post has a toc.
+    const hasTOC = document.querySelector('.post-toc');
     let display = CONFIG.page.sidebar;
     if (typeof display !== 'boolean') {
       // There's no definition sidebar in the page front-matter.

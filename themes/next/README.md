@@ -11,13 +11,13 @@
   «NexT» is a high quality elegant <a href="https://hexo.io">Hexo</a> theme. It is crafted from scratch with love.
 <br>
 <br>
-  <a href="https://www.npmjs.com/package/hexo-theme-next"><img src="https://img.shields.io/npm/v/hexo-theme-next?style=flat-square"></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E=10.9.0-green?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/hexo-theme-next"><img src="https://img.shields.io/npm/v/hexo-theme-next?color=red&logo=npm&style=flat-square"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/node/v/hexo-theme-next?color=green&logo=node.js&style=flat-square"></a>
   <a href="https://hexo.io"><img src="https://img.shields.io/badge/hexo-%3E=4.0.0-blue?style=flat-square&logo=hexo"></a>
   <a href="https://github.com/next-theme/hexo-theme-next/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-%20AGPL-orange?style=flat-square&logo=gnu"></a>
-  <img src="https://img.shields.io/github/workflow/status/next-theme/hexo-theme-next/Linter?style=flat-square">
+  <a href="https://github.com/next-theme/hexo-theme-next/actions"><img src="https://img.shields.io/github/workflow/status/next-theme/hexo-theme-next/Linter?label=test&logo=github&style=flat-square"></a>
 <br>
-  <img src="https://user-images.githubusercontent.com/16272760/63487983-da41b080-c4df-11e9-951c-64883a8a5e9b.png">
+  <img src="https://user-images.githubusercontent.com/16272760/83972923-98baae80-a915-11ea-8142-3cf875dad8bf.png">
 </p>
 
 ## Live Preview
@@ -42,23 +42,21 @@ Or you can see [detailed installation instructions][docs-installation-url] if yo
 
 ## Plugins
 
-NexT supports a large number of third-party plugins, which can be easily configured.
+Plugins extend and expand the functionality of NexT. There are two types of plugins: core plugins and third-party plugins. The core plugins are required by the basic functions of NexT. Third-party plugins are loaded from jsDelivr CDN by default, and they provide a large number of optional features.
 
-For example, if you want to enable `pjax` on your site, just set `pjax` to `true` in NexT config file:
+Configuring these plugins is very easy. For example, if you want to enable `pjax` on your site, just set `pjax` to `true` in NexT config file:
 
 ```yml
 # Easily enable fast Ajax navigation on your website.
-# Dependencies: https://github.com/next-theme/pjax
+# For more information: https://github.com/next-theme/pjax
 pjax: true
 ```
 
-Then visit the «Dependencies» link to get the installation instructions of this module.
-
 ### Configure CDN
 
-If you want to specify a CDN link for any plugins, you need to set / update the CDN link.
+If you want to specify the CDN provider for any plugins, you need to set / update the CDN URL.
 
-For example, if you want to use `mediumzoom` and load the plugin via CDN, go to NexT config and see:
+For example, if you want to set the CDN URL for `mediumzoom`, go to NexT config and see:
 
 ```yml
 vendors:
@@ -77,10 +75,10 @@ $ cd themes/next
 $ git pull
 ```
 
-And if you see any error message during update (something like **«Commit your changes or stash them before you can merge»**), recommended to learn [Hexo data files][docs-data-files-url] feature.\
+And if you see any error message during update (something like **«Commit your changes or stash them before you can merge»**), recommended to learn [Alternate Theme Config][docs-data-files-url] feature.\
 However, you can bypass update errors by using the `Commit`, `Stash` or `Reset` commands for local changes. See [here](https://stackoverflow.com/a/15745424/5861495) how to do it.
 
-**If you want to update from v5.1.x to the latest version, read [this][docs-update-5-1-x-url].**
+**If you want to update from v5.x / v7.x to the latest version, read [this][docs-update-5-1-x-url].**
 
 ## Feedback
 
@@ -105,23 +103,23 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 
 ## Thanks
 
-<p align="center">
-  «NexT» send special thanks to these great services that sponsor our core infrastructure:
-<br>
-<br>
-  <a href="https://github.com"><img align="center" width="100" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.netlify.com"><img align="center" width="150" src="https://cdn.netlify.com/15ecf59b59c9d04b88097c6b5d2c7e8a7d1302d0/1b6d6/img/press/logos/full-logo-light.svg"></a>
-<br>
-<br>
-  <sub>GitHub allows us to host the Git repository, Netlify allows us to distribute the documentation.</sub>
-<br>
-<br>
-  <a href="https://crowdin.com"><img align="center" width="180" src="https://support.crowdin.com/assets/logos/crowdin-logo1-small.png"></a>
-<br>
-<br>
-  <sub>Crowdin allows us to translate conveniently the documentation.</sub>
-</p>
+«NexT» send special thanks to these great services that sponsor our core infrastructure:
+
+<a href="https://github.com"><img height="40" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"></a>
+
+> GitHub allows us to host the Git repository.
+
+<a href="https://www.netlify.com"><img height="40" src="https://cdn.netlify.com/15ecf59b59c9d04b88097c6b5d2c7e8a7d1302d0/1b6d6/img/press/logos/full-logo-light.svg"></a>
+
+> Netlify allows us to distribute the documentation.
+
+<a href="https://crowdin.com"><img height="40" src="https://support.crowdin.com/assets/logos/crowdin-logo-small-black.svg"></a>
+
+> Crowdin allows us to translate conveniently the documentation.
+
+<a href="https://www.jsdelivr.com"><img height="40" src="https://raw.githubusercontent.com/jsdelivr/jsdelivr-media/master/default/svg/jsdelivr-logo-horizontal.svg"></a>
+
+> Thanks jsDelivr for providing public CDN service.
 
 [docs-installation-url]: https://theme-next.js.org/docs/getting-started/installation.html
 [docs-data-files-url]: https://theme-next.js.org/docs/getting-started/configuration.html

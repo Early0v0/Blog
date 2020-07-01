@@ -14,15 +14,11 @@
     &::before {
       background: $grey-dark;
       border: 1px solid white;
-      border-radius: 50%;
-      content: ' ';
-      height: 10px;
-      left: 0;
       margin-left: -6px;
       margin-top: -4px;
       position: absolute;
       top: 50%;
-      width: 10px;
+      round-icon(10px);
     }
   }
 
@@ -34,15 +30,11 @@
 
     &::before {
       background: $grey;
-      border-radius: 50%;
-      content: ' ';
-      height: 8px;
-      left: 0;
       margin-left: -4px;
       margin-top: -4px;
       position: absolute;
       top: 50%;
-      width: 8px;
+      round-icon(8px);
     }
   }
 
@@ -61,22 +53,16 @@
     margin: 30px 0;
     padding-left: 15px;
     position: relative;
-    transition-property: border;
-    the-transition();
+    transition: border $transition-ease;
 
     &::before {
       background: $grey;
       border: 1px solid white;
-      border-radius: 50%;
-      content: ' ';
-      height: 6px;
-      left: 0;
-      margin-left: -4px;
+      left: -4px;
       position: absolute;
       top: $font-size-smallest;
-      transition-property: background;
-      width: 6px;
-      the-transition();
+      transition: background $transition-ease;
+      round-icon(6px);
     }
 
     &:hover {
@@ -112,7 +98,6 @@
     background: $whitesmoke;
     content: ' ';
     height: 100%;
-    left: 0;
     margin-left: -2px;
     position: absolute;
     top: 1.25em;

@@ -19,12 +19,7 @@ body {
   cursor: url($cursor), default;
   cursor: default if $cursor == null;
   opacity: $opacity;
-
-  +tablet-mobile() {
-    // Remove the padding of body when the sidebar is open.
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+  transition: all $transition-ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,7 +58,7 @@ a, span.exturl {
   cursor: pointer if $cursor-pointer == null;
 }
 
-iframe, img, video {
+iframe, img, video, embed {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -96,16 +91,4 @@ dt {
 dd {
   margin: 0;
   padding: 0;
-}
-
-kbd {
-  background-color: $whitesmoke;
-  background-image: linear-gradient($gainsboro, white, $gainsboro);
-  border: 1px solid $grey-light;
-  border-radius: .2em;
-  box-shadow: .1em .1em .2em rgba(0, 0, 0, .1);
-  color: $code-foreground;
-  font-family: inherit;
-  padding: .1em .3em;
-  white-space: nowrap;
 }

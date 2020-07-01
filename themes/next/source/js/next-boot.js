@@ -8,7 +8,7 @@ NexT.boot.registerEvents = function() {
   NexT.utils.registerCanIUseTag();
 
   // Mobile top menu bar.
-  document.querySelector('.site-nav-toggle .toggle').addEventListener('click', () => {
+  document.querySelector('.site-nav-toggle .toggle').addEventListener('click', event => {
     event.currentTarget.classList.toggle('toggle-close');
     const siteNav = document.querySelector('.site-nav');
     if (!siteNav) return;
@@ -30,36 +30,29 @@ NexT.boot.registerEvents = function() {
   document.querySelectorAll('.sidebar-nav li').forEach((element, index) => {
     element.addEventListener('click', event => {
       const item = event.currentTarget;
-      const activeTabClassName = 'sidebar-nav-active';
-      const activePanelClassName = 'sidebar-panel-active';
-      if (item.classList.contains(activeTabClassName)) return;
+      if (item.matches('.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview')) return;
+      const sidebar = document.querySelector('.sidebar-inner');
+      const panel = document.querySelectorAll('.sidebar-panel');
+      const activeClassName = ['sidebar-toc-active', 'sidebar-overview-active'];
 
-      const targets = document.querySelectorAll('.sidebar-panel');
-      const target = targets[index];
-      const currentTarget = targets[1 - index];
       window.anime({
-        targets : currentTarget,
+        targets : panel[1 - index],
         duration: TAB_ANIMATE_DURATION,
         easing  : 'linear',
         opacity : 0,
         complete: () => {
           // Prevent adding TOC to Overview if Overview was selected when close & open sidebar.
-          currentTarget.classList.remove(activePanelClassName);
-          target.style.opacity = 0;
-          target.classList.add(activePanelClassName);
+          sidebar.classList.remove(activeClassName[1 - index]);
+          panel[index].style.opacity = 0;
+          sidebar.classList.add(activeClassName[index]);
           window.anime({
-            targets : target,
+            targets : panel[index],
             duration: TAB_ANIMATE_DURATION,
             easing  : 'linear',
             opacity : 1
           });
         }
       });
-
-      [...item.parentNode.children].forEach(element => {
-        element.classList.remove(activeTabClassName);
-      });
-      item.classList.add(activeTabClassName);
     });
   });
 
@@ -80,13 +73,16 @@ NexT.boot.refresh = function() {
    * Register JS handlers by condition option.
    * Need to add config option in Front-End at 'layout/_partials/head.njk' file.
    */
+  CONFIG.prism && window.Prism.highlightAll();
   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img');
+  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
+    background: 'var(--content-bg-color)'
+  });
   CONFIG.lazyload && window.lozad('.post-body img').observe();
   CONFIG.pangu && window.pangu.spacingPage();
 
   CONFIG.exturl && NexT.utils.registerExtURL();
-  CONFIG.copycode.enable && NexT.utils.registerCopyCode();
+  NexT.utils.registerCopyCode();
   NexT.utils.registerTabsTag();
   NexT.utils.registerActiveMenuItem();
   NexT.utils.registerLangSelect();
@@ -103,6 +99,7 @@ NexT.boot.motion = function() {
       .add(NexT.motion.middleWares.menu)
       .add(NexT.motion.middleWares.postList)
       .add(NexT.motion.middleWares.sidebar)
+      .add(NexT.motion.middleWares.footer)
       .bootstrap();
   }
   NexT.utils.updateSidebarPosition();

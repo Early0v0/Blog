@@ -17,7 +17,7 @@
       float: right;
       font-size: $font-size-larger;
       margin-left: -1.2em;
-      the-transition-ease-in();
+      transition: color $transition-ease-in;
 
       +mobile-small() {
         margin-left: initial;
@@ -42,17 +42,14 @@
     bottom: 0;
     content: '';
     height: 2px;
-    left: 0;
     position: absolute;
     transform: scaleX(0);
-    visibility: hidden;
+    transition: transform $transition-ease;
     width: 100%;
-    the-transition();
   }
 
   &:hover::before {
     transform: scaleX(1);
-    visibility: visible;
   }
 
   .fa-external-link-alt {
