@@ -3,13 +3,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const algoliaSettings = CONFIG.algolia;
   const { indexName, appID, apiKey } = algoliaSettings;
-  const input = document.querySelector('.search-input');
 
-  let search = instantsearch({
+  const search = instantsearch({
     indexName,
     searchClient  : algoliasearch(appID, apiKey),
     searchFunction: helper => {
-      if (input.value) {
+      if (document.querySelector('.search-input').value) {
         helper.search();
       }
     }
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       container: '#algolia-stats',
       templates: {
         text: data => {
-          let stats = algoliaSettings.labels.hits_stats
+          const stats = algoliaSettings.labels.hits_stats
             .replace(/\$\{hits}/, data.nbHits)
             .replace(/\$\{time}/, data.processingTimeMS);
           return `${stats}
@@ -57,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       container: '#algolia-hits',
       templates: {
         item: data => {
-          let link = data.permalink ? data.permalink : CONFIG.root + data.path;
+          const link = data.permalink ? data.permalink : CONFIG.root + data.path;
           return `<a href="${link}" class="algolia-hit-item-link">${data._highlightResult.title.value}</a>`;
         },
         empty: data => {
@@ -98,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.popup-trigger').forEach(element => {
     element.addEventListener('click', () => {
       document.body.classList.add('search-active');
-      setTimeout(() => input.focus(), 500);
+      setTimeout(() => document.querySelector('.search-input').focus(), 500);
     });
   });
 

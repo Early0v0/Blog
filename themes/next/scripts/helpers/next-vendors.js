@@ -3,8 +3,8 @@
 'use strict';
 
 hexo.extend.helper.register('js_vendors', function() {
-  let { config, theme } = this;
-  let vendors = {
+  const { config, theme } = this;
+  const vendors = {
     anime: 'lib/anime.min.js'
   };
   if (config.prismjs.enable && !config.prismjs.preprocess) {
@@ -29,10 +29,6 @@ hexo.extend.helper.register('js_vendors', function() {
   }
   if (theme.pangu) {
     vendors.pangu = '//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js';
-  }
-  if (theme.motion.enable) {
-    vendors.velocity = 'lib/velocity/velocity.min.js';
-    vendors.velocity_ui = 'lib/velocity/velocity.ui.min.js';
   }
   return vendors;
 });

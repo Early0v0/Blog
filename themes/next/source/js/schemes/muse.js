@@ -1,4 +1,4 @@
-/* global CONFIG, Velocity */
+/* global CONFIG */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseupHandler: function(event) {
       const deltaX = event.pageX - mousePos.X;
       const deltaY = event.pageY - mousePos.Y;
-      const clickingBlankPart = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)) < 20 && event.target.matches('.main');
+      const clickingBlankPart = Math.hypot(deltaX, deltaY) < 20 && event.target.matches('.main');
       // Fancybox has z-index property, but medium-zoom does not, so the sidebar will overlay the zoomed image.
       if (clickingBlankPart || event.target.matches('img.medium-zoom-image')) {
         this.hideSidebar();
@@ -33,12 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     showSidebar: function() {
       document.body.classList.add('sidebar-active');
-      if (typeof Velocity === 'function') {
-        Velocity(document.querySelectorAll('.sidebar .motion-element'), isRight ? 'transition.slideRightIn' : 'transition.slideLeftIn', {
-          stagger: 50,
-          drag   : true
-        });
-      }
+      const animateAction = isRight ? 'fadeInRight' : 'fadeInLeft';
+      document.querySelectorAll('.sidebar .animated').forEach((element, index) => {
+        element.style.animationDelay = (100 * index) + 'ms';
+        element.classList.remove(animateAction);
+        setTimeout(() => {
+          // Trigger a DOM reflow
+          element.classList.add(animateAction);
+        }, 0);
+      });
     },
     hideSidebar: function() {
       document.body.classList.remove('sidebar-active');

@@ -1,7 +1,15 @@
-const fs = require('fs');
+'use strict';
 
-function parse(file) {
-  let css = fs.readFileSync(file).toString();
+const fs = require('fs');
+const path = require('path');
+
+function resolve(name) {
+  return path.dirname(require.resolve(`${name}/package.json`));
+}
+
+function highlightTheme(name) {
+  const file = `${resolve('highlight.js')}/styles/${name}.css`;
+  const css = fs.readFileSync(file).toString();
   let rule = '';
   let background = '';
   let foreground = '';
@@ -21,20 +29,26 @@ function parse(file) {
   };
 }
 
+function prismTheme(name) {
+  let file = `${resolve('prismjs')}/themes/${name}.css`;
+  if (!fs.existsSync(file)) file = `${resolve('prism-themes')}/themes/${name}.css`;
+  return file;
+}
+
 module.exports = hexo => {
-  let { config } = hexo;
-  let theme = hexo.theme.config;
+  const { config } = hexo;
+  const theme = hexo.theme.config;
   config.highlight.hljs = false;
   config.prismjs = config.prismjs || {};
   theme.highlight = {
     enable: config.highlight.enable && !config.prismjs.enable,
-    light : parse(`${hexo.plugin_dir}highlight.js/styles/${theme.codeblock.theme.light}.css`),
-    dark  : parse(`${hexo.plugin_dir}highlight.js/styles/${theme.codeblock.theme.dark}.css`)
+    light : highlightTheme(theme.codeblock.theme.light),
+    dark  : highlightTheme(theme.codeblock.theme.dark)
   };
   theme.prism = {
     enable: config.prismjs.enable,
-    light : `${hexo.plugin_dir}prismjs/themes/${theme.codeblock.prism.light}.css`,
-    dark  : `${hexo.plugin_dir}prismjs/themes/${theme.codeblock.prism.dark}.css`,
-    number: `${hexo.plugin_dir}prismjs/plugins/line-numbers/prism-line-numbers.css`
+    light : prismTheme(theme.codeblock.prism.light),
+    dark  : prismTheme(theme.codeblock.prism.dark),
+    number: `${resolve('prismjs')}/plugins/line-numbers/prism-line-numbers.css`
   };
 };

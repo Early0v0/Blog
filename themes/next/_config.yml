@@ -9,9 +9,6 @@
 # See: https://theme-next.js.org/docs/theme-settings/
 # ---------------------------------------------------------------
 
-# Console reminder if new version released.
-reminder: false
-
 # Allow to cache content generation. Introduced in NexT v6.0.0.
 cache:
   enable: true
@@ -195,7 +192,7 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: fa fa-globe
+  icon: fa fa-link
   title: 友链
   # Available values: block | inline
   layout: block
@@ -260,13 +257,13 @@ symbols_count_time:
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
 
-# Reward (Donate)
+# Donate (Sponsor) settings
 # Front-matter variable (unsupport animation).
 reward_settings:
-  # If true, reward will be displayed in every article by default.
+  # If true, a donate button will be displayed in every article by default.
   enable: false
   animation: false
-  #comment: Donate comment here.
+  #comment: Buy me a coffee
 
 reward:
   #wechatpay: /images/wechatpay.png
@@ -326,7 +323,8 @@ calendar:
   calendar_id: <required> # Your Google account E-Mail
   api_key: <required>
   orderBy: startTime
-  offsetMax: 24 # Time Range
+  showLocation: false
+  offsetMax: 72 # Time Range
   offsetMin: 4 # Time Range
   showDeleted: false
   singleEvents: true
@@ -335,6 +333,7 @@ calendar:
 
 # ---------------------------------------------------------------
 # Misc Theme Settings
+# See: https://theme-next.js.org/docs/theme-settings/
 # ---------------------------------------------------------------
 
 # Set the text alignment in posts / pages.
@@ -354,11 +353,10 @@ custom_logo: #/uploads/custom-logo.jpg
 
 codeblock:
   # Code Highlight theme
-  # See: https://github.com/highlightjs/highlight.js/tree/master/src/styles
+  # All available themes: https://theme-next.js.org/highlight/
   theme:
     light: atom-one-light
     dark: atom-one-dark
-  # See: https://github.com/PrismJS/prism/tree/master/themes
   prism:
     light: prism
     dark: prism-dark
@@ -403,7 +401,7 @@ github_banner:
 # Font Settings
 # See: https://theme-next.js.org/docs/theme-settings/#Fonts-Customization
 # ---------------------------------------------------------------
-# Find fonts on Google Fonts (https://www.google.com/fonts)
+# Find fonts on Google Fonts (https://fonts.google.com)
 # All fonts set here will have the following styles:
 #   light | light italic | normal | normal italic | bold | bold italic
 # Be aware that setting too much fonts will cause site running slowly
@@ -432,18 +430,18 @@ font:
   # Font settings for site title (.site-title).
   title:
     external: true
-    family: "Acme"
+    family: 'Acme'
     size: 2
 
   # Font settings for site subtitle (.site-subtitle).
   subtitle:
     external: true
-    family: "Patua One"
+    family: 'Patua One'
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: "Monda', 'FZYaShiHeiS"
+    family: 'Monda, FZYaShiHeiS'
 
   # Font settings for posts (.post-body).
   posts:
@@ -453,11 +451,12 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: "Fira Mono"
+    family: 'Fira Mono'
 
 
 # ---------------------------------------------------------------
 # SEO Settings
+# See: https://theme-next.js.org/docs/theme-settings/seo
 # ---------------------------------------------------------------
 
 # Disable Baidu transformation on mobile devices.
@@ -627,6 +626,8 @@ valine:
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
   recordIP: false # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  enableQQ: false # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  requiredFields: [] # Set required fields: ['nick'] | ['nick','mail']
   #post_meta_order: 0
 
 # LiveRe comments system
@@ -808,7 +809,7 @@ tabs:
 # PDF tag
 # NexT will try to load pdf files natively, if failed, pdf.js will be used.
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
-# See: https://github.com/next-theme/theme-next-pdf
+# Dependencies: https://github.com/next-theme/theme-next-pdf
 pdf:
   enable: false
   # Default height
@@ -825,25 +826,19 @@ mermaid:
 # Animation Settings
 # ---------------------------------------------------------------
 
-# Use velocity to animate everything.
-# For more information: http://velocityjs.org
+# Use Animate.css to animate everything.
+# For more information: https://animate.style
 motion:
   enable: true
-  async: false
+  async: true
   transition:
-    # Transition variants:
-    # fadeIn | flipXIn | flipYIn | flipBounceXIn | flipBounceYIn
-    # swoopIn | whirlIn | shrinkIn | expandIn
-    # bounceIn | bounceUpIn | bounceDownIn | bounceLeftIn | bounceRightIn
-    # slideUpIn | slideDownIn | slideLeftIn | slideRightIn
-    # slideUpBigIn | slideDownBigIn | slideLeftBigIn | slideRightBigIn
-    # perspectiveUpIn | perspectiveDownIn | perspectiveLeftIn | perspectiveRightIn
+    # All available transition variants: https://theme-next.js.org/animate/
     post_block: fadeIn
-    post_header: slideDownIn
-    post_body: slideDownIn
-    coll_header: slideLeftIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
     # Only for Pisces | Gemini.
-    sidebar: slideDownIn
+    sidebar: fadeInDown
 
 # Progress bar in the top during page loading.
 # For more information: https://github.com/HubSpot/pace
@@ -853,14 +848,6 @@ pace:
   # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
   # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
   theme: minimal
-
-# JavaScript 3D library.
-# Dependencies: https://github.com/next-theme/theme-next-three
-three:
-  enable: false
-  three_waves: false
-  canvas_lines: false
-  canvas_sphere: false
 
 # Canvas ribbon
 # For more information: https://github.com/hustcc/ribbon.js
@@ -909,13 +896,15 @@ vendors:
   internal: local
 
   # Internal version: 3.1.0
-  # anime: //unpkg.com/animejs@3.1.0/lib/anime.min.js
-  # anime: //cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js
+  # anime: //cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js
+  # anime: //unpkg.com/animejs@3.2.0/lib/anime.min.js
+  # anime: //cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js
   anime:
 
   # Internal version: 5.13.0
+  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
   # fontawesome: //unpkg.com/@fortawesome/fontawesome-free@5/css/all.min.css
-  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css
+  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css
   fontawesome:
 
   # Prism
@@ -936,7 +925,7 @@ vendors:
   # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
   # copy_tex_js: //unpkg.com/katex@0/dist/contrib/copy-tex.min.js
   # copy_tex_css: //unpkg.com/katex@0/dist/contrib/copy-tex.min.css
-  katex:
+  katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
   copy_tex_js:
   copy_tex_css:
 
@@ -997,34 +986,23 @@ vendors:
 
   # Mermaid
   # mermaid: //unpkg.com/mermaid@8/dist/mermaid.min.js
-  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.min.js
+  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.6.3/mermaid.min.js
   mermaid:
 
-  # Internal version: 1.2.1
-  # velocity: //unpkg.com/velocity-animate@1/velocity.min.js
-  # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
-  # velocity_ui: //unpkg.com/velocity-animate@1/velocity.ui.min.js
-  # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
-  velocity:
-  velocity_ui:
+  # Internal version: 3.1.1
+  # Warning: motion won't work with animate.css version 3.2.0 or later
+  # animate_css: //cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css
+  # animate_css: //unpkg.com/animate.css@3.1.1/animate.min.css
+  # animate_css: //cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css
+  animate_css:
 
   # Internal version: 1.0.2
   # pace: //unpkg.com/pace-js@1/pace.min.js
   # pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js
-  # pace_css: //unpkg.com/pace-js@1/themes/blue/pace-theme-minimal.min.css
+  # pace_css: //unpkg.com/pace-js@1/themes/blue/pace-theme-minimal.css
   # pace_css: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css
   pace:
   pace_css:
-
-  # JavaScript 3D library
-  # three: //unpkg.com/three@0/build/three.min.js
-  # three_waves: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/three-waves.min.js
-  # canvas_lines: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/canvas_lines.min.js
-  # canvas_sphere: //cdn.jsdelivr.net/gh/next-theme/theme-next-three@1/canvas_sphere.min.js
-  three:
-  three_waves:
-  canvas_lines:
-  canvas_sphere:
 
   # Canvas ribbon
   # canvas_ribbon: //unpkg.com/ribbon.js@1/dist/ribbon.min.js
