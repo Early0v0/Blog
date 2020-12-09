@@ -198,10 +198,11 @@ links_settings:
   layout: block
 
 links:
-  Vxlimo's Blog: https://vxlimo.github.io
-  LinZhengyu's Blog: https://www.cnblogs.com/LinZhengyu
-  Yuc's Blog: https://www.cnblogs.com/Camp-Nou
-  Peanut_Tang's Blog: https://www.cnblogs.com/PeanutTang
+  PinkRabbit: https://www.cnblogs.com/PinkRabbit
+  Vxlimo: https://vxlimo.github.io
+  LinZhengyu: https://www.cnblogs.com/LinZhengyu
+  Yuc: https://www.cnblogs.com/Camp-Nou
+  Peanut_Tang: https://www.cnblogs.com/PeanutTang
   #Title: http://yoursite.com
 
 # Table of Contents in the Sidebar
